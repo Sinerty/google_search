@@ -14,7 +14,7 @@ class NavigationBar(BasePage):
         super(NavigationBar, self).__init__()
         # вебелемент компоненту
         component = WebDriverWait(self.driver, conftest.CONFIG["COMPONENT_WAIT_TIME"]) \
-            .until(EC.visibility_of_element_located(self.navigation_bar), 'Відсутній блок пошуку')
+            .until(EC.visibility_of_element_located(self.navigation_bar), 'Відсутній блок пагінації')
         # кастомний вейт від компоненту
         self.wait = WebDriverWait(component, conftest.CONFIG["ELEMENT_WAIT_TIME"])
 

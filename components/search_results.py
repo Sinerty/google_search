@@ -23,14 +23,10 @@ class SearchResults(BasePage):
         Пошук усіх доменів у рещультатах пошуку
         :return: список усіх доменів
         """
-        # створення порожнього списку доменів
-        domains = []
         # список усіх вебелементів з доменами
         links = self.wait.until(EC.presence_of_all_elements_located(self.search_domain),
                                 'Відсутні елементи з доменами')
-        for link in links:
-            # запис кожного домена з вебелемента у список
-            domains.append(link.text)
+        domains = [link.text for link in links]
         return domains
 
     def search_in_title(self, word, results_range):
